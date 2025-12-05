@@ -1,4 +1,4 @@
-# 📊 DSA Visualization Engine (C++17)
+# DSA Visualization Engine (C++17)
 
 A modular, production-style C++17 command-line engine that **visualizes the internal execution steps** of classical Data Structures & Algorithms.
 
@@ -9,17 +9,17 @@ It supports:
 
 ---
 
-## 🚀 Features
+## Features
 - 🔍 **Real-time step visualization** (each operation logged clearly)
-- 📦 **Modular architecture** (graph, sorting, logger, main)
-- 🎚 **Speed modes:** `slow`, `normal`, `fast`, `none`
-- 🧩 **Clean C++17 STL-based design**
-- 📂 **File-based input** for graphs & arrays
-- 🧠 Great for **learning**, **debugging**.
+- **Modular architecture** (graph, sorting, logger, main)
+- **Speed modes:** `slow`, `normal`, `fast`, `none`
+- **Clean C++17 STL-based design**
+- **File-based input** for graphs & arrays
+- Great for **learning** and **debugging**.
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 ```
 dsa-visualization-engine-cpp/
 ├── src/
@@ -36,7 +36,7 @@ dsa-visualization-engine-cpp/
 
 ---
 
-## 🛠 Build
+##  Build
 ```bash
 make clean
 make
@@ -44,26 +44,26 @@ make
 
 ---
 
-## 🧪 Usage
+##  Usage
 
-### ▶ Run BFS
+### Run BFS
 ```bash
 ./dsa_visualize bfs samples/graph1.txt 0 normal
 ```
 
-### ▶ Run DFS
+### Run DFS
 ```bash
 ./dsa_visualize dfs samples/graph1.txt 0 fast
 ```
 
-### ▶ Run Dijkstra (unit weights)
+### Run Dijkstra (unit weights)
 ```bash
 ./dsa_visualize dijkstra samples/graph1.txt 0 normal
 ```
 
 ---
 
-## 🔧 Sorting Algorithms
+## Sorting Algorithms
 
 ### Bubble Sort
 ```bash
@@ -87,7 +87,7 @@ make
 
 ---
 
-## 📄 Input File Formats
+## Input File Formats
 
 ### Graph (directed edges)
 ```
@@ -108,19 +108,19 @@ Example:
 
 ---
 
-## 🧱 Architecture Overview
+## Architecture Overview
 
-### 📝 Logger Module
+### Logger Module
 - Step counter  
 - Delay control  
 - Message formatting  
 
-### 🔗 Graph Module
+### Graph Module
 - BFS with queue tracing  
 - DFS with recursion tracking  
 - Dijkstra with PQ + relax logs  
 
-### 🔢 Sorting Module
+### Sorting Module
 - Bubble Sort (compare/swap)
 - Quick Sort (partition logging)
 - Merge Sort (merge writes)
@@ -129,7 +129,7 @@ Example:
 
 ---
 
-## ✨ Author
+## Author
 **Kethavath Siddu**  
 IIT Kharagpur — Computer Science & Engineering
 
