@@ -15,7 +15,7 @@ It supports:
 - 🎚 **Speed modes:** `slow`, `normal`, `fast`, `none`
 - 🧩 **Clean C++17 STL-based design**
 - 📂 **File-based input** for graphs & arrays
-- 🧠 Great for **learning**, **debugging**, and **interviews**
+- 🧠 Great for **learning**, **debugging**.
 
 ---
 
