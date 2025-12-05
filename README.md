@@ -10,7 +10,7 @@ It supports:
 ---
 
 ## Features
-- 🔍 **Real-time step visualization** (each operation logged clearly)
+- **Real-time step visualization** (each operation logged clearly)
 - **Modular architecture** (graph, sorting, logger, main)
 - **Speed modes:** `slow`, `normal`, `fast`, `none`
 - **Clean C++17 STL-based design**
