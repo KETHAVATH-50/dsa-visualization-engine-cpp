@@ -128,10 +128,5 @@ Example:
 
 
 ---
-
-## Author
-**Kethavath Siddu**  
-IIT Kharagpur — Computer Science & Engineering
-
 ---
 
