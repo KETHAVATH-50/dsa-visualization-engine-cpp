@@ -1,132 +1,101 @@
-# DSA Visualization Engine (C++17)
+# C++17 Algorithm Execution Tracer
 
-A modular, production-style C++17 command-line engine that **visualizes the internal execution steps** of classical Data Structures & Algorithms.
+I made this while going over basic graph and sorting algorithms. I felt like using a debugger didn’t really show what was happening in the algorithm (like how the BFS queue grows or how quicksort picks pivots). So I wrote a simple tracer that prints the important steps to the terminal. Nothing fancy, just something that helped me understand things better.
 
-It supports:
-- **Graph Algorithms:** BFS, DFS, Dijkstra
-- **Sorting Algorithms:** Bubble Sort, Quick Sort, Merge Sort, Heap Sort  
-- **Step-by-step logging**, **speed control**, and a **clean multi-module architecture**
+## Design Notes
 
----
+### 1. Keeping the algorithms clean
+The algorithms themselves don’t print anything. They only send small “events” like Swap(i, j) or PushToQueue(node). Then the logger prints them. This made the algorithm code easier for me to read and test.
 
-## Features
-- **Real-time step visualization** (each operation logged clearly)
-- **Modular architecture** (graph, sorting, logger, main)
-- **Speed modes:** `slow`, `normal`, `fast`, `none`
-- **Clean C++17 STL-based design**
-- **File-based input** for graphs & arrays
-- Great for **learning** and **debugging**.
+### 2. Only logging useful steps
+Instead of printing whole arrays or lists every time, I only log the parts that actually matter:
+- when something gets pushed into the BFS queue
+- when quicksort does a partition
+- when an edge gets relaxed in dijkstra
+- swaps in the sorting algorithms
 
----
+It keeps the output shorter and easier to follow.
 
-##  Project Structure
-```
-dsa-visualization-engine-cpp/
-├── src/
-│   ├── main.cpp
-│   ├── logger.cpp / logger.h
-│   ├── graph.cpp  / graph.h
-│   ├── sort.cpp   / sort.h
-├── samples/
-│   ├── graph1.txt
-│   └── arr1.txt
-├── Makefile
-└── README.md
-```
+### 3. Only C++17
+I didn’t use any libraries besides the STL.
 
----
+## Algorithms Included
 
-##  Build
+**Graphs**
+- bfs
+- dfs
+- Dijkstra
+
+**Sorting**
+- quicksort
+- mergesort
+- heapsort
+- bubble sort
+
+## Building and Running
+
+Needs a C++17 compiler and make.
+
+To build:
 ```bash
-make clean
 make
 ```
 
----
+### General Command Line Format
 
-##  Usage
+The program takes the algorithm type, the input file, and a speed setting.
 
-### Run BFS
-```bash
-./dsa_visualize bfs samples/graph1.txt 0 normal
+```
+./dsa_visualize [category] [input_file] [speed]
 ```
 
-### Run DFS
-```bash
-./dsa_visualize dfs samples/graph1.txt 0 fast
+Example:
+```
+./dsa_visualize bfs samples/graph1.txt normal
 ```
 
-### Run Dijkstra (unit weights)
-```bash
-./dsa_visualize dijkstra samples/graph1.txt 0 normal
+For sorting, there is one extra argument for the sorting method:
 ```
-
----
-
-## Sorting Algorithms
-
-### Bubble Sort
-```bash
-./dsa_visualize sort bubble samples/arr1.txt slow
-```
-
-### Quick Sort
-```bash
 ./dsa_visualize sort quick samples/arr1.txt fast
 ```
 
-### Merge Sort
-```bash
-./dsa_visualize sort merge samples/arr1.txt normal
-```
+Speed modes: slow, normal, fast, none
 
-### Heap Sort
-```bash
-./dsa_visualize sort heap samples/arr1.txt normal
-```
+## Input Formats
 
----
-
-## Input File Formats
-
-### Graph (directed edges)
-```
-u v
-```
-Example:
+Graph (u v edges):
 ```
 0 1
 0 2
 1 3
+2 3
 3 4
 ```
 
-### Array (space separated)
+Array:
 ```
 5 2 9 1 5 6
 ```
+## Project Layout
 
----
+```
+dsa-visualize-cpp/
+  src/
+    main.cpp
+    logger.cpp
+    logger.h
+    graph.cpp
+    graph.h
+    sort.cpp
+    sort.h
+  samples/
+    graph1.txt
+    arr1.txt
+  Makefile
+  README.md
+```
 
-## Architecture Overview
-
-### Logger Module
-- Step counter  
-- Delay control  
-- Message formatting  
-
-### Graph Module
-- BFS with queue tracing  
-- DFS with recursion tracking  
-- Dijkstra with PQ + relax logs  
-
-### Sorting Module
-- Bubble Sort (compare/swap)
-- Quick Sort (partition logging)
-- Merge Sort (merge writes)
-- Heap Sort (heapify + extract)
-
-
----
----
-
+## Things I might add later
+- A* search
+- json event output (for maybe a web ui later)
+- a mode that pauses after each event so you can step manually
