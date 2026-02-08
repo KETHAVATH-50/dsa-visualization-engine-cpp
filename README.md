@@ -51,7 +51,7 @@ The program takes the algorithm type, the input file, and a speed setting.
 
 Example:
 ```
-./dsa_visualize bfs samples/graph1.txt normal
+./dsa_visualize bfs samples/graph1.txt 0 normal
 ```
 
 For sorting, there is one extra argument for the sorting method:
